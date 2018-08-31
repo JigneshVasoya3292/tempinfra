@@ -1,0 +1,41 @@
+#
+# Copyright IBM Corp All Rights Reserved
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+networks:
+  mitel-ov:
+    external:
+      name: mitel-ov
+
+services:
+  orderer.mitel.com:
+    container_name: orderer.mitel.com
+    image: hyperledger/fabric-orderer:1.1.0
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/etc/hyperledger/configtx/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/msp/orderer/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/msp/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/msp/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/msp/orderer/tls/ca.crt, /etc/hyperledger/msp/peerMitel/tls/ca.crt, /etc/hyperledger/msp/peerOrg1/tls/ca.crt, /etc/hyperledger/msp/peerOrg2/tls/ca.crt]
+      # TODO : check if need to add other orgs here is required or not
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/orderer
+    command: orderer
+    ports:
+      - 7050:7050
+    volumes:
+        - ./channel-artifacts/:/etc/hyperledger/configtx
+        - ./crypto-config/ordererOrganizations/mitel.com/orderers/orderer.mitel.com/:/etc/hyperledger/msp/orderer
+        - ./crypto-config/peerOrganizations/mitel.com/peers/peer0.mitel.com/:/etc/hyperledger/msp/peerMitel
+        - ./crypto-config/peerOrganizations/org1.com/peers/peer0.org1.com/:/etc/hyperledger/msp/peerOrg1
+        - ./crypto-config/peerOrganizations/org2.com/peers/peer0.org2.com/:/etc/hyperledger/msp/peerOrg2
+    networks:
+      - mitel-ov

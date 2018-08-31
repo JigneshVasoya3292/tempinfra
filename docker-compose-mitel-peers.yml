@@ -1,0 +1,86 @@
+#
+# Copyright IBM Corp All Rights Reserved
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+networks:
+  mitel-ov:
+    external:
+      name: mitel-ov
+
+services:
+  mitel-couchdb1:
+    container_name: mitel-couchdb1
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    ports:
+      - 5984:5984
+    networks:
+      - mitel-ov
+
+  peer0.mitel.com:
+    container_name: peer0.mitel.com
+    extends:
+      file: base/peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.mitel.com
+      - CORE_PEER_ADDRESS=peer0.mitel.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.mitel.com:7051
+      - CORE_PEER_LOCALMSPID=mitelMSP
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=mitel-couchdb1:5984
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+      - CORE_PEER_CHAINCODELISTENADDRESS=peer0.mitel.com:7052
+     # command: peer node start --peer-chaincodedev=true
+    ports:
+      - 7051:7051
+      - 7053:7053
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./crypto-config/peerOrganizations/mitel.com/peers/peer0.mitel.com/msp:/etc/hyperledger/msp/peer
+        - ./crypto-config/peerOrganizations/mitel.com/users:/etc/hyperledger/msp/users
+        - ./crypto-config/peerOrganizations/mitel.com/peers/peer0.mitel.com:/etc/hyperledger/custom
+        - ./channel-artifacts:/etc/hyperledger/configtx
+    depends_on:
+      - mitel-couchdb1
+    networks:
+      - mitel-ov
+  
+  mitel-cli:
+    container_name: mitel-cli
+    image: hyperledger/fabric-tools
+    tty: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_LOGGING_LEVEL=DEBUG
+      - CORE_PEER_ID=cli
+      - CORE_PEER_ADDRESS=peer0.mitel.com:7051
+      - CORE_PEER_LOCALMSPID=mitelMSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/mitel.com/peers/peer0.mitel.com/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/mitel.com/peers/peer0.mitel.com/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/mitel.com/peers/peer0.mitel.com/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/mitel.com/users/Admin@mitel.com/msp
+      - CORE_CHAINCODE_KEEPALIVE=10
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: /bin/bash
+    volumes:
+        - /var/run/:/host/var/run/
+        - ./chaincode/:/opt/gopath/src/github.com/
+        - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
+        - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
+        - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
+    depends_on:
+      - peer0.mitel.com
+    networks:
+        - mitel-ov

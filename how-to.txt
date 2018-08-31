@@ -1,0 +1,24 @@
+Arguments Ref :
+PEER_NUMBER : 0 or 1 based on peer
+BANK_NAME : Bank Org Name
+CHANNEL_NAME : channel name for bank
+HOST_NUMBER : host 1 or 2 
+
+ 1) change configtx.yaml and crypto-config.yaml
+ 2) chane bmhn.sh with appropritate changes
+ 3) run bmhn.sh
+ 8) change docker-compose-host{HOST_NUMBER}.yml accordingly
+    3) change port numbers
+    4) docker-compose -f <filename> up -d 
+
+ 9) On teminal run :  docker exec -it cli /bin/bash scripts/createchannel.sh {CHANNEL_NAME}
+ 10)To Join a channel : docker exec -e "CORE_PEER_ADDRESS=peer{PEER_NUMBER}.{PEER_NAME}.com:7051" cli peer channel join -b {CHANNEL_NAME}.block
+
+ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/mitel.com/orderers/orderer.mitel.com/msp/tlscacerts/tlsca.mitel.com-cert.pem
+peer channel update -f {SME_JSON_NAME}_update_in_envelope.pb  -c {CHANNEL_NAME} -o orderer..com:7050 --tls true --cafile $ORDERER_CA
+
+
+ For couchdb :
+  - http://127.0.0.1:6984/_utils
+
+ docker network create --attachable --driver overlay my-net

@@ -1,0 +1,47 @@
+[2018-09-10 09:44:10.700] [DEBUG] FabricConfiguration - Msp ID : biloxiMSP
+[2018-09-10 09:44:10.979] [DEBUG] FabricConfiguration - Msp ID : biloxiMSP
+[2018-09-10 09:44:11.826] [DEBUG] FabricConfiguration - Msp ID : atlantaMSP
+[2018-09-10 09:44:11.848] [DEBUG] FabricConfiguration - Msp ID : atlantaMSP
+[2018-09-10 09:44:12.130] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-10 09:44:12.142] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-10 09:44:12.532] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-10 09:44:12.532] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-10 09:44:12.631] [DEBUG] Query - <<< Instantiated Chaincodes >>>
+[2018-09-10 09:44:12.632] [DEBUG] Query - name: webinar87503, version: v1, path: github.com/im
+[2018-09-10 09:44:12.923] [DEBUG] Query - ===========================================
+[2018-09-10 09:44:12.923] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 03 12 20 98 f6 64 e4 51 e1 0d 3c a6 2e 61 e7 ef 2b bf 88 3a 9f 1a 78 5f 99 bc d2 05 5e ce aa 05 13 f3 82 1a 20 16 4d c3 16 69 74 42 55 13 77 4f 29 ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-10 09:44:12.930] [DEBUG] Query - ===========================================
+[2018-09-10 09:44:12.974] [DEBUG] Query - ===========================================
+[2018-09-10 09:44:12.975] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 03 12 20 98 f6 64 e4 51 e1 0d 3c a6 2e 61 e7 ef 2b bf 88 3a 9f 1a 78 5f 99 bc d2 05 5e ce aa 05 13 f3 82 1a 20 16 4d c3 16 69 74 42 55 13 77 4f 29 ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-10 09:44:12.976] [DEBUG] Query - ===========================================
+[2018-09-10 09:44:33.412] [DEBUG] FabricConfiguration - Msp ID : biloxiMSP
+[2018-09-10 09:44:33.500] [DEBUG] FabricConfiguration - Msp ID : biloxiMSP
+[2018-09-10 09:44:34.146] [DEBUG] FabricConfiguration - Msp ID : atlantaMSP
+[2018-09-10 09:44:34.162] [DEBUG] FabricConfiguration - Msp ID : atlantaMSP
+[2018-09-10 09:44:34.475] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-10 09:44:34.495] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-10 09:44:35.466] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-10 09:44:44.305] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.biloxi.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.atlanta.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-10 09:45:52.272] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.biloxi.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.atlanta.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-10 09:46:52.541] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.biloxi.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.atlanta.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-10 09:47:53.721] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.biloxi.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.atlanta.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]

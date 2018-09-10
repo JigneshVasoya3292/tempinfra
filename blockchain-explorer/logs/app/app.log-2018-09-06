@@ -1,0 +1,144 @@
+[2018-09-06 10:13:23.091] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 10:13:23.112] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 10:13:23.594] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 10:13:23.604] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 10:13:23.866] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 10:13:23.881] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 10:13:24.336] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 10:13:24.336] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 10:13:24.430] [DEBUG] Query - <<< Instantiated Chaincodes >>>
+[2018-09-06 10:13:24.430] [DEBUG] Query - name: im1234, version: v1, path: 
+[2018-09-06 10:13:24.430] [DEBUG] Query - name: im1236, version: v1, path: 
+[2018-09-06 10:13:24.616] [DEBUG] Query - ===========================================
+[2018-09-06 10:13:24.616] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 10:13:24.624] [DEBUG] Query - ===========================================
+[2018-09-06 10:13:24.638] [DEBUG] Query - ===========================================
+[2018-09-06 10:13:24.638] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 10:13:24.638] [DEBUG] Query - ===========================================
+[2018-09-06 10:18:30.709] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 10:26:19.586] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 10:26:19.610] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 10:26:19.905] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 10:26:19.921] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 10:26:20.180] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 10:26:20.203] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 10:26:20.604] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 10:26:20.604] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 10:26:20.676] [DEBUG] Query - <<< Instantiated Chaincodes >>>
+[2018-09-06 10:26:20.676] [DEBUG] Query - name: im1234, version: v1, path: 
+[2018-09-06 10:26:20.676] [DEBUG] Query - name: im1236, version: v1, path: 
+[2018-09-06 10:26:20.762] [DEBUG] Query - ===========================================
+[2018-09-06 10:26:20.763] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 10:26:20.766] [DEBUG] Query - ===========================================
+[2018-09-06 10:26:20.783] [DEBUG] Query - ===========================================
+[2018-09-06 10:26:20.784] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 10:26:20.785] [DEBUG] Query - ===========================================
+[2018-09-06 10:31:01.555] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 10:35:15.215] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 10:40:44.789] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:03:52.116] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 11:03:52.135] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 11:03:52.281] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 11:03:52.293] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 11:03:52.439] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 11:03:52.445] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 11:03:52.648] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 11:03:52.648] [INFO] main - Please set logger.setLevel to DEBUG in ./app/helper.js to log the debugging.
+[2018-09-06 11:03:52.721] [DEBUG] Query - <<< Instantiated Chaincodes >>>
+[2018-09-06 11:03:52.721] [DEBUG] Query - name: im1234, version: v1, path: 
+[2018-09-06 11:03:52.722] [DEBUG] Query - name: im1236, version: v1, path: 
+[2018-09-06 11:03:52.750] [DEBUG] Query - ===========================================
+[2018-09-06 11:03:52.751] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 11:03:52.753] [DEBUG] Query - ===========================================
+[2018-09-06 11:03:52.766] [DEBUG] Query - ===========================================
+[2018-09-06 11:03:52.766] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 11:03:52.774] [DEBUG] Query - ===========================================
+[2018-09-06 11:15:00.095] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:20:19.667] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:20:19.668] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:20:19.668] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:20:19.669] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:24:38.922] [DEBUG] platform - GetStatus All! [ { status: 'RUNNING', server_hostname: 'peer0.org1.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.org2.com' },
+  { status: 'RUNNING', server_hostname: 'peer0.mitel.com' } ]
+[2018-09-06 11:36:26.213] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 11:36:26.251] [DEBUG] FabricConfiguration - Msp ID : org1MSP
+[2018-09-06 11:36:26.613] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 11:36:26.621] [DEBUG] FabricConfiguration - Msp ID : org2MSP
+[2018-09-06 11:36:26.874] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 11:36:26.899] [DEBUG] FabricConfiguration - Msp ID : mitelMSP
+[2018-09-06 11:36:27.361] [DEBUG] Query - <<< Instantiated Chaincodes >>>
+[2018-09-06 11:36:27.364] [DEBUG] Query - name: im1234, version: v1, path: 
+[2018-09-06 11:36:27.364] [DEBUG] Query - name: im1236, version: v1, path: 
+[2018-09-06 11:36:27.540] [DEBUG] Query - ===========================================
+[2018-09-06 11:36:27.541] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 11:36:27.557] [DEBUG] Query - ===========================================
+[2018-09-06 11:36:27.627] [DEBUG] Query - ===========================================
+[2018-09-06 11:36:27.627] [DEBUG] Query - ByteBuffer {
+  buffer: <Buffer 08 05 12 20 ba 5c 78 3c 58 1b 1e ef 98 d8 02 07 62 ad 4d 97 46 ce 16 6b 5f 5d 05 2c 6a 54 6a 17 3f 8b 71 fe 1a 20 4d 17 c4 bb 3e 0d d2 0c d8 30 6a 0f ... >,
+  offset: 4,
+  markedOffset: -1,
+  limit: 36,
+  littleEndian: true,
+  noAssert: false }
+[2018-09-06 11:36:27.631] [DEBUG] Query - ===========================================

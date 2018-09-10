@@ -1,0 +1,72 @@
+{
+  "network-config": {
+    "org1": {
+      "name": "peerbiloxi",
+      "mspid": "biloxiMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:8051",
+        "events": "grpcs://127.0.0.1:8053",
+        "server-hostname": "peer0.biloxi.com",
+        "tls_cacerts":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/biloxi.com/peers/peer0.biloxi.com/tls/ca.crt"
+      },
+      "admin": {
+        "key":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/biloxi.com/users/Admin@biloxi.com/msp/keystore",
+        "cert":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/biloxi.com/users/Admin@biloxi.com/msp/signcerts"
+      }
+    },
+    "org2": {
+      "name": "peeratlanta",
+      "mspid": "atlantaMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:9051",
+        "events": "grpcs://127.0.0.1:9053",
+        "server-hostname": "peer0.atlanta.com",
+        "tls_cacerts":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/atlanta.com/peers/peer0.atlanta.com/tls/ca.crt"
+      },
+      "admin": {
+        "key":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/atlanta.com/users/Admin@atlanta.com/msp/keystore",
+        "cert":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/atlanta.com/users/Admin@atlanta.com/msp/signcerts"
+      }
+    },
+    "org3": {
+      "name": "peerMitel",
+      "mspid": "mitelMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:7051",
+        "events": "grpcs://127.0.0.1:7053",
+        "server-hostname": "peer0.mitel.com",
+        "tls_cacerts":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/mitel.com/peers/peer0.mitel.com/tls/ca.crt"
+      },
+      "admin": {
+        "key":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/mitel.com/users/Admin@mitel.com/msp/keystore",
+        "cert":
+          "/home/jvasoya/blockPOC/tempinfra/crypto-config/peerOrganizations/mitel.com/users/Admin@mitel.com/msp/signcerts"
+      }
+    }
+  },
+  "channel": "webinarchannel",
+  "orderers": [
+    {
+      "mspid": "OrdererMSP",
+      "server-hostname": "orderer.mitel.com",
+      "requests": "grpcs://127.0.0.1:7050",
+      "tls_cacerts":
+        "/home/jvasoya/blockPOC/tempinfra/crypto-config/ordererOrganizations/mitel.com/orderers/orderer.mitel.com/tls/ca.crt"
+    }
+  ],
+  "keyValueStore": "/tmp/fabric-client-kvs",
+  "configtxgenToolPath": "/home/jvasoya/blockPOC/tempinfra/bin",
+  "SYNC_START_DATE_FORMAT": "YYYY/MM/DD",
+  "syncStartDate": "2018/01/01",
+  "eventWaitTime": "30000",
+  "license": "Apache-2.0",
+  "version": "1.1"
+}

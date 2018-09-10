@@ -1,0 +1,29 @@
+#
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '2'
+
+networks:
+  mitel-ov:
+    external:
+      name: mitel-ov
+
+services:
+   # api server
+  biloxi.com:
+    image: nodesdk:1.0.0
+    container_name: api.biloxi.com
+    ports:
+      - "4002:4001"
+    environment:
+      - ORG=biloxi
+      - PORT=4001
+    volumes:
+     - ../crypto-config:/usr/src/artifacts/channel/crypto-config
+     - ../channel-artifacts:/usr/src/artifacts/channel
+     - .:/usr/src/artifacts
+    networks:
+      - mitel-ov
+  

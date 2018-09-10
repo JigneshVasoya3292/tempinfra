@@ -93,7 +93,7 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 
 	org := args[0]
 	userId := args[1]
-	id := strings.Join([]string{org, userId}, " ")
+	id := strings.Join([]string{org, userId}, "-")
 	// ==== Check if user already exists ====
 	userAsBytes, err := stub.GetState(id)
 	if err != nil {
@@ -127,7 +127,7 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 
 	org := args[0]
 	userId := args[1]
-	id := strings.Join([]string{org, userId}, " ")
+	id := strings.Join([]string{org, userId}, "-")
 	// Get the state from the ledger
 	Avalbytes, err := stub.GetState(id)
 	if err != nil {

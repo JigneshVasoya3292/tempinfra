@@ -22,7 +22,7 @@ OrdererOrgs:
 # ---------------------------------------------------------------------------
 PeerOrgs:
   # ---------------------------------------------------------------------------
-  # Org1
+  # biloxi
   # ---------------------------------------------------------------------------
   - Name: mitel
     Domain: mitel.com
@@ -43,7 +43,7 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #   - Hostname: foo # implicitly "foo.biloxi.example.com"
     #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
@@ -73,10 +73,10 @@ PeerOrgs:
 
 
 # ---------------------------------------------------------------------------
-  # Org1
+  # biloxi
   # ---------------------------------------------------------------------------
-  - Name: org1
-    Domain: org1.com
+  - Name: biloxi
+    Domain: biloxi.com
     # ---------------------------------------------------------------------------
     # "Specs"
     # ---------------------------------------------------------------------------
@@ -94,7 +94,7 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #   - Hostname: foo # implicitly "foo.biloxi.example.com"
     #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
@@ -127,8 +127,8 @@ PeerOrgs:
 # ---------------------------------------------------------------------------
   # Org1
   # ---------------------------------------------------------------------------
-  - Name: org2
-    Domain: org2.com
+  - Name: atlanta
+    Domain: atlanta.com
     # ---------------------------------------------------------------------------
     # "Specs"
     # ---------------------------------------------------------------------------
@@ -146,7 +146,7 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.org1.example.com"
+    #   - Hostname: foo # implicitly "foo.biloxi.example.com"
     #     CommonName: foo27.org5.example.com # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz

@@ -30,8 +30,7 @@ import (
 
 type Identity struct {
 	ID     string `json:"id"`
-	Org    string `json:"name"`
-	UserID string `json:"user_id"`
+	Data    string `json:"data"`
 }
 
 // SimpleChaincode example simple Chaincode implementation
@@ -79,7 +78,7 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 	var err error
 
 	//   0       1
-	// "Org", "name"
+	// "Id", "Data"
 	if len(args) != 2 {
 		return shim.Error("Incorrect number of arguments. Expecting 2")
 	}
@@ -91,9 +90,9 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 		return shim.Error("user Id argument must be a non-empty string")
 	}
 
-	org := args[0]
-	userId := args[1]
-	id := strings.Join([]string{org, userId}, "-")
+	id := args[0]
+	data := args[1]
+
 	// ==== Check if user already exists ====
 	userAsBytes, err := stub.GetState(id)
 	if err != nil {
@@ -103,7 +102,7 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 	}
 
 	// ==== Create user object and marshal to JSON ====
-	user := Identity{ID: id, Org: org, UserID: userId}
+	user := Identity{ID: id, Data: data}
 	userJSONasBytes, err := json.Marshal(user)
 	if err != nil {
 		return shim.Error(err.Error())
@@ -121,13 +120,11 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var err error
 
-	if len(args) != 2 {
-		return shim.Error("Incorrect number of arguments. Expecting name of org and userId to query")
+	if len(args) != 1 {
+		return shim.Error("Incorrect number of arguments. Expecting id to query")
 	}
 
-	org := args[0]
-	userId := args[1]
-	id := strings.Join([]string{org, userId}, "-")
+	id := args[0]
 	// Get the state from the ledger
 	Avalbytes, err := stub.GetState(id)
 	if err != nil {

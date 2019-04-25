@@ -25,12 +25,21 @@ import (
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
+	/* "bytes"
+	"encoding/gob" */
 )
 
 type Identity struct {
 	ID     string `json:"id"`
 	Data    string `json:"data"`
 }
+
+type AllIdentities struct {
+	items     []string `json:"items"`
+}
+
+var items = []string{};
+var allIdentities = AllIdentities{ items }
 
 // SimpleChaincode example simple Chaincode implementation
 type SimpleChaincode struct {
@@ -63,6 +72,8 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 		return t.registerUser(stub, args)
 	} else if function == "query" {
 		return t.query(stub, args) // to get value for key
+	} else if function == "queryAll" {
+		return t.queryAll(stub, args) // to get value for key
 	} else {
 		fmt.Println("invoke did not find func: " + function) //error
 		return shim.Error("Received unknown function invocation")
@@ -112,6 +123,10 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 		return shim.Error(err.Error())
 	}
 
+	fmt.Println("allidentities length before: ", len(allIdentities.items))
+	allIdentities.items = append(allIdentities.items, data)
+	fmt.Println("allidentities length after: ", len(allIdentities.items))
+
 	// ==== Identity saved. Return success ====
 	return shim.Success(nil)
 }
@@ -137,4 +152,19 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 	}
 
 	return shim.Success(Avalbytes)
+}
+
+func (t *SimpleChaincode) queryAll(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	/* fmt.Println("queryAll is called ");
+	buf := &bytes.Buffer{}
+	gob.NewEncoder(buf).Encode(allIdentities)
+	bs := buf.Bytes() */
+
+	fmt.Println("allidentities length queryAll: ", len(allIdentities.items))
+	allIdentitiesJSONasBytes, err := json.Marshal(allIdentities.items)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	return shim.Success(allIdentitiesJSONasBytes)
 }

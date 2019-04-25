@@ -38,8 +38,7 @@ type AllIdentities struct {
 	items     []string `json:"items"`
 }
 
-var items = []string{};
-var allIdentities = AllIdentities{ items }
+var ALLIDENTITIES_KEY = "allidentities"
 
 // SimpleChaincode example simple Chaincode implementation
 type SimpleChaincode struct {
@@ -123,9 +122,32 @@ func (t *SimpleChaincode) registerUser(stub shim.ChaincodeStubInterface, args []
 		return shim.Error(err.Error())
 	}
 
-	fmt.Println("allidentities length before: ", len(allIdentities.items))
-	allIdentities.items = append(allIdentities.items, data)
-	fmt.Println("allidentities length after: ", len(allIdentities.items))
+	allIdentitiesAsbytes, err := stub.GetState(ALLIDENTITIES_KEY)
+	allIdentitiesToUpdate := []string{}
+	if err != nil {
+		fmt.Println("allidentities key not found")
+		allIdentitiesToUpdate = append(allIdentitiesToUpdate, data)
+	} else {
+		errb := json.Unmarshal(allIdentitiesAsbytes, &allIdentitiesToUpdate) //unmarshal it aka JSON.parse()
+		if errb != nil {
+			fmt.Println("allidentities key not JSON parsable")
+			allIdentitiesToUpdate = append(allIdentitiesToUpdate, data)
+		} else {
+			fmt.Println("allidentities length before: ", len(allIdentitiesToUpdate))
+			allIdentitiesToUpdate = append(allIdentitiesToUpdate, data)
+			fmt.Println("allidentities length after: ", len(allIdentitiesToUpdate))
+		}		
+	}
+	
+	identitiesJSONBytes, err := json.Marshal(allIdentitiesToUpdate)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	// === Save identity to state ===
+	err = stub.PutState(ALLIDENTITIES_KEY, identitiesJSONBytes)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
 
 	// ==== Identity saved. Return success ====
 	return shim.Success(nil)
@@ -159,12 +181,11 @@ func (t *SimpleChaincode) queryAll(stub shim.ChaincodeStubInterface, args []stri
 	buf := &bytes.Buffer{}
 	gob.NewEncoder(buf).Encode(allIdentities)
 	bs := buf.Bytes() */
-
-	fmt.Println("allidentities length queryAll: ", len(allIdentities.items))
-	allIdentitiesJSONasBytes, err := json.Marshal(allIdentities.items)
+	
+	allIdentitiesAsbytes, err := stub.GetState(ALLIDENTITIES_KEY)
 	if err != nil {
-		return shim.Error(err.Error())
+		shim.Error("Error to get allidentities:" + err.Error())
 	}
 
-	return shim.Success(allIdentitiesJSONasBytes)
+	return shim.Success(allIdentitiesAsbytes)
 }
